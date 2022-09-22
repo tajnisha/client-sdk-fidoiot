@@ -37,7 +37,6 @@ client_sdk_compile_options(
   -Wswitch-default
   -Wunused-parameter
   -Wsign-compare
-  -Wno-deprecated-declarations
   -Wpedantic
   -Werror
   -Wimplicit-function-declaration
@@ -103,6 +102,7 @@ if(${TARGET_OS} MATCHES linux)
     -L$ENV{TINYCBOR_ROOT}/lib/
     -l:libtinycbor.a
     -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now
+    -lcurl
     )
 
   if (${TLS} STREQUAL openssl)
